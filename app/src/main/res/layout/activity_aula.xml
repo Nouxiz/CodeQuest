@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#1a1a2e">
+
+    <TextView
+        android:id="@+id/tvTituloAula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aula 1: O que é lógica?"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvConteudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Conteúdo da aula aqui..."
+            android:textColor="#cccccc"
+            android:textSize="16sp"
+            android:lineSpacingExtra="6dp"/>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvProgresso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/5"
+        android:textColor="#aaaaaa"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnProximo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Próximo >"
+        android:backgroundTint="#7c4dff"/>
+
+</LinearLayout>

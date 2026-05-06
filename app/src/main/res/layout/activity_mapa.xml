@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a2e">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Progresso"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/btnFase1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Fase 1 ✅"
+                android:backgroundTint="#7c4dff"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnFase2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Fase 2"
+                android:backgroundTint="#444444"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnFase3"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Fase 3"
+                android:backgroundTint="#444444"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnFase4"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Fase 4"
+                android:backgroundTint="#444444"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnFase5"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Fase 5"
+                android:backgroundTint="#444444"
+                android:layout_marginBottom="32dp"/>
+
+            <TextView
+                android:id="@+id/tvFasesConcluidas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fases Concluídas: 1/5"
+                android:textColor="#aaaaaa"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

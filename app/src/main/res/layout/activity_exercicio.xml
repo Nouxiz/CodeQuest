@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#1a1a2e">
+
+    <TextView
+        android:id="@+id/tvXP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+10 XP"
+        android:textColor="#7c4dff"
+        android:textSize="14sp"
+        android:layout_gravity="end"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvProgressoExercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Progresso 1/5"
+        android:textColor="#aaaaaa"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/tvPergunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Qual a ordem correta para escovar os dentes?"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnOpcaoA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A) Opção A"
+        android:backgroundTint="#333355"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnOpcaoB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="B) Opção B"
+        android:backgroundTint="#333355"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnOpcaoC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C) Opção C"
+        android:backgroundTint="#333355"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnOpcaoD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="D) Opção D"
+        android:backgroundTint="#333355"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirmar"
+        android:backgroundTint="#7c4dff"/>
+
+</LinearLayout>
