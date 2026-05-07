@@ -3,7 +3,9 @@ package com.codequest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,10 +18,26 @@ public class LoginActivity extends AppCompatActivity {
 
         Button btnLogin = findViewById(R.id.btnLogin);
         TextView tvCadastro = findViewById(R.id.tvCadastro);
+        EditText etUsuario = findViewById(R.id.etUsuario);
+        EditText etSenha = findViewById(R.id.etSenha);
+
+        DatabaseHelper db = new DatabaseHelper(this);
 
         btnLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, MapaActivity.class);
-            startActivity(intent);
+            String email = etUsuario.getText().toString();
+            String senha = etSenha.getText().toString();
+
+            if (email.isEmpty() || senha.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (db.loginUsuario(email, senha)) {
+                Intent intent = new Intent(LoginActivity.this, MapaActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Email ou senha incorretos!", Toast.LENGTH_SHORT).show();
+            }
         });
 
         tvCadastro.setOnClickListener(v -> {
