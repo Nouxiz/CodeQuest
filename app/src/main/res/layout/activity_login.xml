@@ -5,51 +5,74 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="32dp"
-    android:background="#1a1a2e">
+    android:background="@drawable/imagem_fundo">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
+        android:fontFamily="@font/PressStart2p"
         android:text="CodeQuest"
         android:textColor="#ffffff"
         android:textSize="32sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuário"
+        android:textSize="22sp"
+        android:fontFamily="@font/PressStart2p"
+        android:textColor="#FFFF"/>
+
+
     <EditText
         android:id="@+id/etUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuário"
         android:textColorHint="#aaaaaa"
         android:textColor="#ffffff"
         android:backgroundTint="#ffffff"
         android:layout_marginBottom="16dp"/>
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Senha"
+    android:textColor="#FFFF"
+    android:textSize="22sp"
+    android:fontFamily="@font/PressStart2p"/>
+
 
     <EditText
         android:id="@+id/etSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Senha"
         android:textColorHint="#aaaaaa"
         android:textColor="#ffffff"
         android:backgroundTint="#ffffff"
         android:inputType="textPassword"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#7c4dff"
-        android:layout_marginBottom="16dp"/>
+        android:fontFamily="@font/PressStart2p"
+        android:text="Login"
+        android:textSize="12dp" />
 
     <TextView
         android:id="@+id/tvCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="9dp"
         android:text="Ainda não tem conta? Cadastre-se!"
-        android:textColor="#aaaaaa"/>
+        android:fontFamily="@font/PressStart2p"
+        android:textColor="#aaaa" />
 
 </LinearLayout>
