@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:fontFamily="@font/PressStart2p"
+        android:fontFamily="@font/pressstart2p"
         android:text="CodeQuest"
         android:textColor="#ffffff"
         android:textSize="32sp"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Usuário"
         android:textSize="22sp"
-        android:fontFamily="@font/PressStart2p"
+        android:fontFamily="@font/pressstart2p"
         android:textColor="#FFFF"/>
 
 
@@ -42,7 +42,7 @@
     android:text="Senha"
     android:textColor="#FFFF"
     android:textSize="22sp"
-    android:fontFamily="@font/PressStart2p"/>
+    android:fontFamily="@font/pressstart2p"/>
 
 
     <EditText
@@ -57,12 +57,11 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="200dp"
-        android:layout_gravity="center"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:backgroundTint="#7c4dff"
-        android:fontFamily="@font/PressStart2p"
+        android:fontFamily="@font/pressstart2p"
         android:text="Login"
         android:textSize="12dp" />
 
@@ -72,7 +71,7 @@
         android:layout_height="wrap_content"
         android:textSize="9dp"
         android:text="Ainda não tem conta? Cadastre-se!"
-        android:fontFamily="@font/PressStart2p"
+        android:fontFamily="@font/pressstart2p"
         android:textColor="#aaaa" />
 
 </LinearLayout>

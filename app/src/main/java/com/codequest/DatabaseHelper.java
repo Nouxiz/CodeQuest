@@ -9,7 +9,7 @@ import android.database.Cursor;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "codequest.db";
-    private static final int BANCO_VERSAO = 1;
+    private static final int BANCO_VERSAO = 2;
 
     public DatabaseHelper(Context context) {
         super(context, NOME_BANCO, null, BANCO_VERSAO);
@@ -49,7 +49,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "fase_id INTEGER," +
                 "concluido INTEGER," +
                 "nota INTEGER," +
-                "data_conclusao TEXT)");}
+                "data_conclusao TEXT)");
+
+        db.execSQL("INSERT INTO fases (ordem, titulo, descricao, tipo) VALUES (1, 'Lógica', 'Introdução à lógica de programação', 'teoria')");
+        db.execSQL("INSERT INTO fases (ordem, titulo, descricao, tipo) VALUES (2, 'Algoritmos', 'Introdução a algoritmos', 'teoria')");
+        db.execSQL("INSERT INTO fases (ordem, titulo, descricao, tipo) VALUES (3, 'Variáveis', 'Introdução a variáveis', 'teoria')");
+        db.execSQL("INSERT INTO fases (ordem, titulo, descricao, tipo) VALUES (4, 'Condicionais', 'Introdução a condicionais', 'teoria')");
+        db.execSQL("INSERT INTO fases (ordem, titulo, descricao, tipo) VALUES (5, 'Loops', 'Introdução a loops', 'teoria')");
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int VersaoAntiga, int NovaVersao) {
@@ -76,5 +83,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         boolean existe = cursor.getCount() > 0;
         cursor.close();
         return existe;
+    }
+    public Cursor getFases() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM fases ORDER BY ordem", null);
     }
 }
