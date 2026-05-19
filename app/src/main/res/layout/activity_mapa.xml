@@ -9,33 +9,40 @@
         android:src="@drawable/imagem_fundo_fases"
         android:scaleType="centerCrop"/>
 
-    <Button
-        android:id="@+id/btnPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Perfil"
-        android:textColor="#ffffff"
-        android:textSize="17sp"
-        android:backgroundTint="#44000000"
-        android:padding="8dp"/>
-
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/layoutFases"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="16dp">
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 
-    <TextView
-        android:id="@+id/tvFasesConcluidas"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fases Concluídas: 0/5"
-        android:textColor="#ffffff"
-        android:textSize="17sp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
         android:padding="8dp"
-        android:layout_gravity="bottom"/>
+        android:background="#88000000">
+
+        <TextView
+            android:id="@+id/tvFasesConcluidas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fases Concluídas: 0/5"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:fontFamily="@font/pressstart2p"/>
+
+        <Button
+            android:id="@+id/btnPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚔️ Perfil"
+            android:textColor="#00ccff"
+            android:textSize="12sp"
+            android:backgroundTint="#88000033"
+            android:fontFamily="@font/pressstart2p"
+            android:padding="8dp"/>
+
+    </LinearLayout>
 
 </FrameLayout>

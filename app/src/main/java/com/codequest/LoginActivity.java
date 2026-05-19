@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             if (db.loginUsuario(email, senha)) {
-                Intent intent = new Intent(LoginActivity.this, MapaActivity.class);
+                Intent intent = new Intent(LoginActivity.this, TutorialActivity.class);
                 startActivity(intent);
             } else {
                 Toast.makeText(this, "Email ou senha incorretos!", Toast.LENGTH_SHORT).show();
