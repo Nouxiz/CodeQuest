@@ -27,6 +27,11 @@ public class LoginActivity extends AppCompatActivity {
             String email = etUsuario.getText().toString();
             String senha = etSenha.getText().toString();
 
+            if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
+                Toast.makeText(this, "Email inválido!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             if (email.isEmpty() || senha.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
                 return;

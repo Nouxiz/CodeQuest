@@ -120,5 +120,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase opcoes = this.getReadableDatabase();
         return opcoes.rawQuery("SELECT * FROM opcoes WHERE exercicio_id = ?", new String[]{String.valueOf(exercicioId)});
         }
+    public Cursor getFase(int faseId) {
+        SQLiteDatabase fase = this.getReadableDatabase();
+        return fase.rawQuery("SELECT * FROM fases where id = ?", new String[]{String.valueOf(faseId)});
+        }
     }
+
 

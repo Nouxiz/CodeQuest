@@ -29,6 +29,11 @@ public class CadastroActivity extends AppCompatActivity {
             String email = etEmail.getText().toString();
             String senha = etSenha.getText().toString();
 
+            if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
+                Toast.makeText(this, "Email inválido!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
                 return;
