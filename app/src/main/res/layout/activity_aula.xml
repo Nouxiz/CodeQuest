@@ -7,13 +7,36 @@
     android:background="#1a1a2e">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CodeQuest"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:fontFamily="@font/pressstart2p"
+        android:layout_gravity="center"
+        android:paddingTop="500px"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
         android:id="@+id/tvTituloAula"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aula 1: O que é lógica?"
+        android:text="Aula 1:"
         android:textColor="#ffffff"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:textSize="12sp"
+        android:fontFamily="@font/pressstart2p"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvSubtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="O que é lógica?"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:fontFamily="@font/pressstart2p"
+        android:layout_gravity="center"
         android:layout_marginBottom="16dp"/>
 
     <ScrollView
@@ -26,26 +49,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Conteúdo da aula aqui..."
-            android:textColor="#cccccc"
-            android:textSize="16sp"
+            android:textColor="#00ff00"
+            android:textSize="13sp"
+            android:fontFamily="@font/pressstart2p"
+            android:padding="16dp"
+            android:background="#0d0d0d"
             android:lineSpacingExtra="6dp"/>
 
     </ScrollView>
 
-    <TextView
-        android:id="@+id/tvProgresso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1/5"
-        android:textColor="#aaaaaa"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
-
-    <Button
-        android:id="@+id/btnProximo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Próximo >"
-        android:backgroundTint="#7c4dff"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tvProgresso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1/5"
+            android:textColor="#aaaaaa"
+            android:fontFamily="@font/pressstart2p"
+            android:textSize="10sp"/>
+
+        <Button
+            android:id="@+id/btnProximo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=">"
+            android:backgroundTint="#7c4dff"
+            android:fontFamily="@font/pressstart2p"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

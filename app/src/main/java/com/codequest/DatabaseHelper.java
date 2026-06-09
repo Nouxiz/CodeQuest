@@ -9,7 +9,7 @@ import android.database.Cursor;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "codequest.db";
-    private static final int BANCO_VERSAO = 5;
+    private static final int BANCO_VERSAO = 6;
 
     public DatabaseHelper(Context context) {
         super(context, NOME_BANCO, null, BANCO_VERSAO);
@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // aulas
 
-        db.execSQL("INSERT INTO aulas (fase_id, conteudo_teorico) VALUES (1, 'Lógica é a forma de organizar o raciocínio para resolver problemas. No dia a dia usamos lógica o tempo todo sem perceber! Por exemplo, para escovar os dentes você segue uma ordem: 1. Pegar a escova 2. Colocar pasta 3. Escovar 4. Enxaguar')");
+        db.execSQL("INSERT INTO aulas (fase_id, conteudo_teorico) VALUES (1, 'Lógica é a forma de organizar o raciocínio para resolver problemas. \n No dia a dia usamos lógica o tempo todo sem perceber! Por exemplo, para escovar os dentes você segue uma ordem: 1. Pegar a escova \n 2. Colocar pasta \n 3. Escovar \n 4. Enxaguar')");
 
         // exercicio fase 1
         db.execSQL("INSERT INTO exercicios (fase_id, pergunta, tipo_resposta, resposta_correta, feedback_explicativo) VALUES (1, 'O que é lógica de programação?', 'texto', 'organizar raciocinio', 'Lógica é a forma de organizar o raciocínio para resolver problemas!') ");
@@ -73,6 +73,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (1, 'Uma linguagem de programação', 0)");
         db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (1, 'Um tipo de computador', 0)");
         db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (1, 'Um programa de computador', 0)");
+
+        // exercicio fase 2
+
+        // exercicio fase 3
+
+        // exercicio fase 4
+
+        // exercicio fase 5
+
+
     }
 
     @Override

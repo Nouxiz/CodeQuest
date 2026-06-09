@@ -1,55 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
-    android:background="#1a1a2e">
+    android:background="#0d0d1a">
 
-    <TextView
-        android:id="@+id/tvFaseConcluida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FASE CONCLUÍDA"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:id="@+id/tvParabens"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Parabéns!"
-        android:textColor="#7c4dff"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:id="@+id/tvAprendeu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VOCÊ APRENDEU: LÓGICA"
-        android:textColor="#00ff99"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:id="@+id/tvProximaAula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PRÓXIMA AULA: ALGORITMOS"
-        android:textColor="#aaaaaa"
-        android:textSize="14sp"
-        android:layout_marginBottom="40dp"/>
-
-    <Button
-        android:id="@+id/btnProximaFase"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Próxima Fase"
-        android:backgroundTint="#7c4dff"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✦ ✦ ✦"
+            android:textColor="#7c4dff"
+            android:textSize="24sp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvFaseConcluida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FASE CONCLUÍDA"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:fontFamily="@font/pressstart2p"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/tvParabens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PARABÉNS!"
+            android:textColor="#ffcc00"
+            android:textSize="22sp"
+            android:fontFamily="@font/pressstart2p"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1a1a3e"
+            android:padding="16dp"
+            android:layout_marginBottom="32dp">
+
+            <TextView
+                android:id="@+id/tvAprendeu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ VOCÊ APRENDEU: LÓGICA"
+                android:textColor="#00ff99"
+                android:textSize="9sp"
+                android:fontFamily="@font/pressstart2p"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tvProximaAula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="➤ PRÓXIMA: ALGORITMOS"
+                android:textColor="#aaaaaa"
+                android:textSize="9sp"
+                android:fontFamily="@font/pressstart2p"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+10 XP"
+            android:textColor="#ffcc00"
+            android:textSize="18sp"
+            android:fontFamily="@font/pressstart2p"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/btnProximaFase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PRÓXIMA FASE >"
+            android:backgroundTint="#7c4dff"
+            android:fontFamily="@font/pressstart2p"
+            android:textSize="10sp"
+            android:textColor="#ffffff"/>
+
+    </LinearLayout>
+
+</FrameLayout>
