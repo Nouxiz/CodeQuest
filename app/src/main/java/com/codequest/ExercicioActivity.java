@@ -2,6 +2,7 @@ package com.codequest;
 
 import android.widget.Button;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -38,13 +39,27 @@ public class ExercicioActivity extends AppCompatActivity {
 
             final boolean[] acertou = {false};
             final String[] respostaSelecionada = {""};
+            final Button[] botaoSelecionado = {null};
 
             while (opcoes.moveToNext() && i < 4) {
                 String textoOpcao = opcoes.getString(opcoes.getColumnIndexOrThrow("texto"));
                 int correta = opcoes.getInt(opcoes.getColumnIndexOrThrow("correta"));
                 botoes[i].setText(textoOpcao);
                 final boolean isCorreta = correta == 1;
+                final Button botaoAtual = botoes[i];
+
                 botoes[i].setOnClickListener(v -> {
+                    // Reseta todos para cor padrão
+                    for (Button b : botoes) {
+                        b.setBackgroundTintList(ColorStateList.valueOf(0xFF1e1e3a));
+                        b.setTextColor(0xFFcccccc);
+                    }
+
+                    // Destaca o selecionado em verde
+                    botaoAtual.setBackgroundTintList(ColorStateList.valueOf(0xFF2e7d32));
+                    botaoAtual.setTextColor(0xFFffffff);
+
+                    botaoSelecionado[0] = botaoAtual;
                     acertou[0] = isCorreta;
                     respostaSelecionada[0] = textoOpcao;
                 });

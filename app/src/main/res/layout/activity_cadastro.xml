@@ -2,17 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#1a1a2e"
     android:gravity="center"
-    android:padding="32dp"
-    android:background="#1a1a2e">
+    android:orientation="vertical"
+    android:padding="32dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="Cadastro"
         android:fontFamily="@font/pressstart2p"
+        android:text="Cadastro"
         android:textColor="#ffffff"
         android:textSize="32sp"
         android:textStyle="bold" />
@@ -22,53 +22,53 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/pressstart2p"
         android:text="Nome"
-        android:textSize="22dp"
-        android:textColor="#FFFF" />
+        android:textColor="#FFFF"
+        android:textSize="22dp" />
 
     <EditText
         android:id="@+id/etNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#aaaaaa"
-        android:textColor="#ffffff"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#ffffff"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="#ffffff"
+        android:textColorHint="#aaaaaa" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pressstart2p"
         android:text="E-mail"
-        android:textSize="22dp"
-        android:textColor="#FFFF" />
+        android:textColor="#FFFF"
+        android:textSize="22dp" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#aaaaaa"
-        android:textColor="#ffffff"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#ffffff"
         android:inputType="textEmailAddress"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="#ffffff"
+        android:textColorHint="#aaaaaa" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pressstart2p"
         android:text="Senha"
-        android:textSize="22dp"
-        android:textColor="#FFFF" />
+        android:textColor="#FFFF"
+        android:textSize="22dp" />
 
     <EditText
         android:id="@+id/etSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#aaaaaa"
-        android:textColor="#ffffff"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="#ffffff"
         android:inputType="textPassword"
-        android:layout_marginBottom="24dp"/>
+        android:textColor="#ffffff"
+        android:textColorHint="#aaaaaa" />
 
     <Button
         android:id="@+id/btnCadastrar"
@@ -79,6 +79,7 @@
         android:fontFamily="@font/pressstart2p"
         android:text="Cadastrar"
         android:textSize="12dp" />
+
     <TextView
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
