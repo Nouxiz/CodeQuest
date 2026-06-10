@@ -14,7 +14,7 @@
         android:textSize="20sp"
         android:fontFamily="@font/pressstart2p"
         android:layout_gravity="center"
-        android:paddingTop="500px"
+        android:paddingTop="300px"
         android:layout_marginBottom="16dp"/>
 
     <TextView
@@ -61,27 +61,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:paddingBottom="200dp" >
+
 
         <TextView
             android:id="@+id/tvProgresso"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/pressstart2p"
             android:text="1/5"
             android:textColor="#aaaaaa"
-            android:fontFamily="@font/pressstart2p"
-            android:textSize="10sp"/>
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/btnProximo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=">"
-            android:backgroundTint="#7c4dff"
-            android:fontFamily="@font/pressstart2p"
-            android:textSize="12sp"/>
+        android:backgroundTint="#7c4dff"
+        android:fontFamily="@font/pressstart2p"
+        android:textSize="12sp" />
 
     </LinearLayout>
 

@@ -6,13 +6,14 @@
     android:background="#0d0d1a"
     android:padding="0dp">
 
-    <!-- Header: Exercicio 1 + XP -->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:paddingTop="14dp"
+        android:layout_marginTop="50dp"
         android:paddingBottom="14dp"
         android:background="#12122a">
 
@@ -41,13 +42,13 @@
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
-    <!-- Linha separadora -->
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#2a2a4a"/>
 
-    <!-- Conteúdo principal -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -58,7 +59,7 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
 
-        <!-- Progresso -->
+
         <TextView
             android:id="@+id/tvProgressoExercicio"
             android:layout_width="wrap_content"
@@ -69,7 +70,7 @@
             android:fontFamily="monospace"
             android:layout_marginBottom="28dp"/>
 
-        <!-- Pergunta -->
+
         <TextView
             android:id="@+id/tvPergunta"
             android:layout_width="match_parent"
@@ -82,7 +83,7 @@
             android:lineSpacingExtra="4dp"
             android:layout_marginBottom="32dp"/>
 
-        <!-- Opção A -->
+
         <Button
             android:id="@+id/btnOpcaoA"
             android:layout_width="match_parent"
@@ -100,7 +101,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"/>
 
-        <!-- Opção B -->
+
         <Button
             android:id="@+id/btnOpcaoB"
             android:layout_width="match_parent"
@@ -118,7 +119,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"/>
 
-        <!-- Opção C -->
+
         <Button
             android:id="@+id/btnOpcaoC"
             android:layout_width="match_parent"
@@ -136,7 +137,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"/>
 
-        <!-- Opção D -->
+
         <Button
             android:id="@+id/btnOpcaoD"
             android:layout_width="match_parent"
@@ -156,7 +157,7 @@
 
     </LinearLayout>
 
-    <!-- Botão Confirmar fixo no rodapé à direita -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -164,7 +165,7 @@
         android:gravity="end"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:paddingBottom="20dp"
+        android:paddingBottom="200dp"
         android:paddingTop="8dp">
 
         <Button
