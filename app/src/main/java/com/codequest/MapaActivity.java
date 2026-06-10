@@ -1,26 +1,26 @@
 package com.codequest;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MapaActivity extends AppCompatActivity {
-
-    int[] posX = {170, 180, 195, 80, 100};
-    int[] posY = {800, 580, 420, 290, 130};
-    String[] titulos = {"Lógica", "Algoritmos", "Variáveis", "Condicionais", "Loops"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapa);
 
-        FrameLayout layoutFases = findViewById(R.id.layoutFases);
-        TextView tvFasesConcluidas = findViewById(R.id.tvFasesConcluidas);
+        GridLayout layoutFases = findViewById(R.id.layoutFases);
 
         Button btnPerfil = findViewById(R.id.btnPerfil);
         btnPerfil.setOnClickListener(v -> {
@@ -28,31 +28,107 @@ public class MapaActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        float density = getResources().getDisplayMetrics().density;
+        DatabaseHelper db = new DatabaseHelper(this);
+        Cursor cursor = db.getFases();
 
-        for (int i = 0; i < titulos.length; i++) {
-            final int faseId = i + 1;
+        int fasesDesbloqueadas = 1;
+        int i = 0;
 
-            Button btnFase = new Button(this);
-            btnFase.setBackgroundResource(R.drawable.bolinha_fase);
-            btnFase.setTextColor(0xFFFFFFFF);
-            btnFase.setTextSize(8);
+        while (cursor.moveToNext()) {
+            final int faseId = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+            String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
 
-            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                    (int)(50 * density),
-                    (int)(38 * density)
-            );
-            params.leftMargin = (int)(posX[i] * density);
-            params.topMargin = (int)(posY[i] * density);
-            btnFase.setLayoutParams(params);
+            boolean concluida = false;
+            boolean desbloqueada = faseId <= fasesDesbloqueadas;
 
-            btnFase.setOnClickListener(v -> {
-                Intent intent = new Intent(MapaActivity.this, AulaActivity.class);
-                intent.putExtra("fase_id", faseId);
-                startActivity(intent);
-            });
+            LinearLayout card = new LinearLayout(this);
+            card.setOrientation(LinearLayout.VERTICAL);
+            card.setGravity(android.view.Gravity.CENTER);
+            card.setPadding(24, 32, 24, 32);
 
-            layoutFases.addView(btnFase);
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.width = 0;
+            params.columnSpec = GridLayout.spec(i % 2, 1f);
+            params.rowSpec = GridLayout.spec(i / 2);
+            params.setMargins(12, 12, 12, 12);
+            card.setLayoutParams(params);
+
+            if (concluida) {
+                card.setBackgroundColor(Color.parseColor("#0a2a0a"));
+            } else if (desbloqueada) {
+                card.setBackgroundColor(Color.parseColor("#1a1a3e"));
+            } else {
+                card.setBackgroundColor(Color.parseColor("#111111"));
+            }
+
+            TextView tvIcone = new TextView(this);
+            tvIcone.setTextSize(28);
+            tvIcone.setGravity(android.view.Gravity.CENTER);
+            tvIcone.setPadding(0, 0, 0, 8);
+
+            if (concluida) tvIcone.setText("📜");
+            else if (desbloqueada) tvIcone.setText("⚔️");
+            else tvIcone.setText("🔒");
+
+            TextView tvNum = new TextView(this);
+            tvNum.setText("FASE 0" + faseId);
+            tvNum.setTextSize(8);
+            tvNum.setGravity(android.view.Gravity.CENTER);
+
+            if (concluida) tvNum.setTextColor(Color.parseColor("#4caf50"));
+            else if (desbloqueada) tvNum.setTextColor(Color.parseColor("#7c4dff"));
+            else tvNum.setTextColor(Color.parseColor("#444444"));
+
+            TextView tvTitulo = new TextView(this);
+            tvTitulo.setText(titulo.toUpperCase());
+            tvTitulo.setTextSize(10);
+            tvTitulo.setGravity(android.view.Gravity.CENTER);
+            tvTitulo.setPadding(0, 4, 0, 8);
+
+            if (concluida) tvTitulo.setTextColor(Color.parseColor("#4caf50"));
+            else if (desbloqueada) tvTitulo.setTextColor(Color.parseColor("#ffffff"));
+            else tvTitulo.setTextColor(Color.parseColor("#444444"));
+
+            TextView tvBadge = new TextView(this);
+            tvBadge.setTextSize(8);
+            tvBadge.setGravity(android.view.Gravity.CENTER);
+            tvBadge.setPadding(12, 4, 12, 4);
+
+            if (concluida) {
+                tvBadge.setText("✓ completa");
+                tvBadge.setTextColor(Color.parseColor("#4caf50"));
+                tvBadge.setBackgroundColor(Color.parseColor("#0a2a0a"));
+            } else if (desbloqueada) {
+                tvBadge.setText("▶ jogar");
+                tvBadge.setTextColor(Color.parseColor("#aa88ff"));
+                tvBadge.setBackgroundColor(Color.parseColor("#2a1a6e"));
+            } else {
+                tvBadge.setText("bloqueada");
+                tvBadge.setTextColor(Color.parseColor("#444444"));
+                tvBadge.setBackgroundColor(Color.parseColor("#1a1a1a"));
+            }
+
+            card.addView(tvIcone);
+            card.addView(tvNum);
+            card.addView(tvTitulo);
+            card.addView(tvBadge);
+
+            if (desbloqueada) {
+                card.setOnClickListener(v -> {
+                    Intent intent = new Intent(MapaActivity.this, AulaActivity.class);
+                    intent.putExtra("fase_id", faseId);
+                    startActivity(intent);
+                });
+            } else {
+                card.setOnClickListener(v ->
+                        Toast.makeText(this, "Complete a fase anterior primeiro!", Toast.LENGTH_SHORT).show()
+                );
+            }
+
+            layoutFases.addView(card);
+            i++;
         }
+
+        cursor.close();
     }
 }

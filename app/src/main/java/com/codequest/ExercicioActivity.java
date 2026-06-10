@@ -49,13 +49,13 @@ public class ExercicioActivity extends AppCompatActivity {
                 final Button botaoAtual = botoes[i];
 
                 botoes[i].setOnClickListener(v -> {
-                    // Reseta todos para cor padrão
+
                     for (Button b : botoes) {
                         b.setBackgroundTintList(ColorStateList.valueOf(0xFF1e1e3a));
                         b.setTextColor(0xFFcccccc);
                     }
 
-                    // Destaca o selecionado em verde
+
                     botaoAtual.setBackgroundTintList(ColorStateList.valueOf(0xFF2e7d32));
                     botaoAtual.setTextColor(0xFFffffff);
 

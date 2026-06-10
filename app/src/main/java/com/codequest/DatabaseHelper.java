@@ -9,7 +9,7 @@ import android.database.Cursor;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "codequest.db";
-    private static final int BANCO_VERSAO = 6;
+    private static final int BANCO_VERSAO = 7;
 
     public DatabaseHelper(Context context) {
         super(context, NOME_BANCO, null, BANCO_VERSAO);
@@ -63,7 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO fases (ordem, titulo, descricao, tipo) VALUES (4, 'Condicionais', 'Introdução a condicionais', 'teoria')");
         db.execSQL("INSERT INTO fases (ordem, titulo, descricao, tipo) VALUES (5, 'Loops', 'Introdução a loops', 'teoria')");
 
-        // aulas
+        // aula fase 1
 
         db.execSQL("INSERT INTO aulas (fase_id, conteudo_teorico) VALUES (1, 'Lógica é a forma de organizar o raciocínio para resolver problemas. \n No dia a dia usamos lógica o tempo todo sem perceber! Por exemplo, para escovar os dentes você segue uma ordem: 1. Pegar a escova \n 2. Colocar pasta \n 3. Escovar \n 4. Enxaguar')");
 
@@ -74,13 +74,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (1, 'Um tipo de computador', 0)");
         db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (1, 'Um programa de computador', 0)");
 
+        // aula fase 2
+        db.execSQL("INSERT INTO aulas (fase_id, conteudo_teorico) VALUES (2, 'Um algoritmo é uma sequência de passos para resolver um problema.\n\nPense numa receita de bolo:\n1. Separar os ingredientes\n2. Misturar os ingredientes\n3. Colocar na forma\n4. Assar por 40 minutos\n5. Esperar esfriar\n\nIsso é um algoritmo! Uma sequência lógica de passos que leva a um resultado.')");
+
         // exercicio fase 2
+        db.execSQL("INSERT INTO exercicios (fase_id, pergunta, tipo_resposta, resposta_correta, feedback_explicativo) VALUES (2, 'O que é um algoritmo?', 'multipla_escolha', 'sequencia de passos', 'Um algoritmo é uma sequência de passos para resolver um problema!')");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (2, 'Uma sequência de passos para resolver um problema', 1)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (2, 'Um tipo de computador', 0)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (2, 'Uma linguagem de programação', 0)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (2, 'Um programa de jogos', 0)");
+
+        // aula fase 3
+        db.execSQL("INSERT INTO aulas (fase_id, conteudo_teorico) VALUES (3, 'Uma variável é um espaço na memória do computador para guardar dados.\n\nPense numa caixinha com um nome:\n- nome = \"João\"\n- idade = 15\n- altura = 1.70\n\nVocê pode guardar qualquer valor nela e mudar quando quiser!\n\nExemplo:\nidade = 15\nidade = 16  (fez aniversário!)')");
 
         // exercicio fase 3
+        db.execSQL("INSERT INTO exercicios (fase_id, pergunta, tipo_resposta, resposta_correta, feedback_explicativo) VALUES (3, 'O que é uma variável?', 'multipla_escolha', 'espaco na memoria', 'Uma variável é um espaço na memória para guardar dados!')");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (3, 'Um espaço na memória para guardar dados', 1)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (3, 'Um tipo de algoritmo', 0)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (3, 'Um comando do computador', 0)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (3, 'Uma tela do programa', 0)");
+
+        // aula fase 4
+        db.execSQL("INSERT INTO aulas (fase_id, conteudo_teorico) VALUES (4, 'Condicionais permitem que o programa tome decisões!\n\nExemplo:\nSE (temperatura > 30)\n   Vista roupa leve\nSENÃO\n   Vista agasalho\n\nNo código isso se chama IF/ELSE:\n\nif (temperatura > 30) {\n   // roupa leve\n} else {\n   // agasalho\n}\n\nO programa verifica a condição e executa um caminho ou outro!')");
 
         // exercicio fase 4
+        db.execSQL("INSERT INTO exercicios (fase_id, pergunta, tipo_resposta, resposta_correta, feedback_explicativo) VALUES (4, 'Qual comando usamos para tomar decisões no código?', 'multipla_escolha', 'if else', 'Usamos if/else para tomar decisões!')");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (4, 'if/else', 1)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (4, 'for/while', 0)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (4, 'print/input', 0)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (4, 'int/string', 0)");
+
+        // aula fase 5
+        db.execSQL("INSERT INTO aulas (fase_id, conteudo_teorico) VALUES (5, 'Loops repetem um bloco de código várias vezes!\n\nSem loop:\nprint(1)\nprint(2)\nprint(3)\nprint(4)\nprint(5)\n\nCom loop:\nfor i in range(1, 6):\n   print(i)\n\nMuito mais simples! O loop repete o código enquanto a condição for verdadeira.')");
 
         // exercicio fase 5
+        db.execSQL("INSERT INTO exercicios (fase_id, pergunta, tipo_resposta, resposta_correta, feedback_explicativo) VALUES (5, 'Para que serve um loop?', 'multipla_escolha', 'repetir codigo', 'Um loop serve para repetir um bloco de código várias vezes!')");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (5, 'Repetir um bloco de código várias vezes', 1)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (5, 'Guardar dados na memória', 0)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (5, 'Tomar decisões no código', 0)");
+        db.execSQL("INSERT INTO opcoes (exercicio_id, texto, correta) VALUES (5, 'Criar variáveis', 0)");
 
 
     }

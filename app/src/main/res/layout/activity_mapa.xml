@@ -1,48 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0d0d1a">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/imagem_fundo_fases"
-        android:scaleType="centerCrop"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#111128"
+        android:gravity="center">
 
-    <FrameLayout
-        android:id="@+id/layoutFases"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚔ SELECIONE A FASE ⚔"
+
+            android:textColor="#ffcc44"
+            android:textSize="12sp"
+            android:fontFamily="@font/pressstart2p"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvFasesConcluidas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CODEQUEST — 0/5 completas"
+            android:textColor="#7c4dff"
+            android:textSize="8sp"
+            android:fontFamily="@font/pressstart2p"/>
+
+    </LinearLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <GridLayout
+            android:id="@+id/layoutFases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:useDefaultMargins="true"/>
+
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        android:padding="8dp"
-        android:background="#88000000">
-
-        <TextView
-            android:id="@+id/tvFasesConcluidas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Fases Concluídas: 0/5"
-            android:textColor="#ffffff"
-            android:textSize="12sp"
-            android:fontFamily="@font/pressstart2p"/>
+        android:padding="12dp"
+        android:background="#111128">
 
         <Button
             android:id="@+id/btnPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="⚔️ Perfil"
-            android:textColor="#00ccff"
-            android:textSize="12sp"
-            android:backgroundTint="#88000033"
+            android:text="⚔ Perfil"
+            android:textColor="#7c4dff"
+            android:textSize="9sp"
+            android:backgroundTint="#00000000"
+            android:fontFamily="@font/pressstart2p"/>
+
+        <TextView
+            android:id="@+id/tvXP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="0 XP"
+            android:textColor="#ffcc44"
+            android:textSize="9sp"
             android:fontFamily="@font/pressstart2p"
-            android:padding="8dp"/>
+            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>
