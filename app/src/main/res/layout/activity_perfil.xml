@@ -6,6 +6,7 @@
     android:padding="24dp"
     android:background="#1a1a2e">
 
+    <!-- Header: Perfil / Nível -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,12 +34,44 @@
 
     </LinearLayout>
 
-    <View
+    <!--
+        ÍCONE DE PERSONAGEM PIXEL ART
+        Substitui o View quadrado. Fundo escuro (#2a2a3e) com borda roxa,
+        o VectorDrawable ic_pixel_character fica centralizado dentro do card.
+    -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#2a2a3e"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_avatar_card">
 
+        <!-- Personagem centralizado -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_pixel_character"
+            android:scaleType="fitCenter"
+            android:contentDescription="Avatar do personagem pixel art"/>
+
+        <!-- Badge de nível no canto inferior direito -->
+        <TextView
+            android:id="@+id/tvBadgeNivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="10dp"
+            android:text="LVL 1"
+            android:textColor="#ffcc00"
+            android:textSize="7sp"
+            android:fontFamily="@font/pressstart2p"
+            android:background="#1a1a2e"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="3dp"/>
+
+    </FrameLayout>
+
+    <!-- Nome do usuário -->
     <TextView
         android:id="@+id/tvNomeUsuario"
         android:layout_width="wrap_content"
@@ -50,15 +83,35 @@
         android:layout_gravity="center"
         android:layout_marginBottom="24dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Label XP Total -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="XP Total"
-        android:textColor="#aaaaaa"
-        android:textSize="9sp"
-        android:fontFamily="@font/pressstart2p"
-        android:layout_marginBottom="4dp"/>
+        android:orientation="horizontal"
+        android:layout_marginBottom="4dp">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="XP Total"
+            android:textColor="#aaaaaa"
+            android:textSize="9sp"
+            android:fontFamily="@font/pressstart2p"/>
+
+        <!-- Valor numérico ex: "50/100" -->
+        <TextView
+            android:id="@+id/tvXPNumerico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50/100"
+            android:textColor="#ffcc00"
+            android:textSize="9sp"
+            android:fontFamily="@font/pressstart2p"/>
+
+    </LinearLayout>
+
+    <!-- Barra de XP -->
     <ProgressBar
         android:id="@+id/progressXP"
         style="?android:attr/progressBarStyleHorizontal"
@@ -67,8 +120,10 @@
         android:max="100"
         android:progress="50"
         android:progressTint="#7c4dff"
+        android:progressBackgroundTint="#2a2a3e"
         android:layout_marginBottom="4dp"/>
 
+    <!-- Texto auxiliar de XP -->
     <TextView
         android:id="@+id/tvXPInfo"
         android:layout_width="wrap_content"
@@ -80,6 +135,7 @@
         android:layout_gravity="end"
         android:layout_marginBottom="24dp"/>
 
+    <!-- Título Estatísticas -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,12 +145,14 @@
         android:fontFamily="@font/pressstart2p"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Divisor roxo -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#7c4dff"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Stats: Aulas / Acertos / Sequência -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -182,6 +240,7 @@
 
     </LinearLayout>
 
+    <!-- Botão voltar -->
     <Button
         android:id="@+id/btnVoltarMapa"
         android:layout_width="match_parent"

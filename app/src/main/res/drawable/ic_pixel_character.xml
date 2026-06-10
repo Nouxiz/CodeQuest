@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Personagem pixel art 16x16 grid desenhado com paths retangulares.
+  Cada "pixel" = 6x6dp reais. Canvas total ~96x112dp.
+  Paleta:
+    Pele  : #f5c89a
+    Cabelo: #5c3d1e
+    Olhos : #1a1a2e
+    Roupa : #7c4dff  (roxo do app)
+    Detalhe: #ffcc00 (amarelo do app)
+    Sombra: #c49a6c
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="112dp"
+    android:viewportWidth="16"
+    android:viewportHeight="18.67">
+
+    <!-- ===== CABELO ===== -->
+    <!-- topo -->
+    <path android:fillColor="#5c3d1e" android:pathData="M4,0 h8 v1 h-8 z"/>
+    <!-- lateral esq -->
+    <path android:fillColor="#5c3d1e" android:pathData="M3,1 h2 v4 h-2 z"/>
+    <!-- lateral dir -->
+    <path android:fillColor="#5c3d1e" android:pathData="M11,1 h2 v4 h-2 z"/>
+    <!-- centro cima -->
+    <path android:fillColor="#5c3d1e" android:pathData="M5,1 h6 v2 h-6 z"/>
+
+    <!-- ===== ROSTO ===== -->
+    <!-- base pele -->
+    <path android:fillColor="#f5c89a" android:pathData="M4,2 h8 v5 h-8 z"/>
+    <!-- sombra queixo -->
+    <path android:fillColor="#c49a6c" android:pathData="M5,6 h6 v1 h-6 z"/>
+
+    <!-- olho esquerdo -->
+    <path android:fillColor="#1a1a2e" android:pathData="M5,3 h2 v2 h-2 z"/>
+    <!-- brilho olho esq -->
+    <path android:fillColor="#ffffff" android:pathData="M5,3 h1 v1 h-1 z"/>
+
+    <!-- olho direito -->
+    <path android:fillColor="#1a1a2e" android:pathData="M9,3 h2 v2 h-2 z"/>
+    <!-- brilho olho dir -->
+    <path android:fillColor="#ffffff" android:pathData="M9,3 h1 v1 h-1 z"/>
+
+    <!-- boca sorriso -->
+    <path android:fillColor="#c95c5c" android:pathData="M6,5.5 h4 v0.5 h-4 z"/>
+    <!-- dente esq -->
+    <path android:fillColor="#ffffff" android:pathData="M6,5.5 h2 v0.5 h-2 z"/>
+    <!-- dente dir -->
+    <path android:fillColor="#ffffff" android:pathData="M8,5.5 h2 v0.5 h-2 z"/>
+
+    <!-- ===== PESCOÇO ===== -->
+    <path android:fillColor="#f5c89a" android:pathData="M7,7 h2 v1 h-2 z"/>
+
+    <!-- ===== CORPO / ROUPA ===== -->
+    <!-- tronco roxo -->
+    <path android:fillColor="#7c4dff" android:pathData="M4,8 h8 v5 h-8 z"/>
+    <!-- detalhe estrela/emblema amarelo centralizado -->
+    <path android:fillColor="#ffcc00" android:pathData="M7,9 h2 v1 h-2 z"/>
+    <path android:fillColor="#ffcc00" android:pathData="M7,10 h2 v1 h-2 z"/>
+    <path android:fillColor="#ffcc00" android:pathData="M6,9.5 h4 v1 h-4 z"/>
+    <!-- colarinho -->
+    <path android:fillColor="#5533cc" android:pathData="M6,8 h4 v1 h-4 z"/>
+
+    <!-- ===== BRAÇOS ===== -->
+    <!-- braço esquerdo -->
+    <path android:fillColor="#7c4dff" android:pathData="M2,8 h2 v4 h-2 z"/>
+    <!-- mão esq (pele) -->
+    <path android:fillColor="#f5c89a" android:pathData="M2,12 h2 v1 h-2 z"/>
+
+    <!-- braço direito -->
+    <path android:fillColor="#7c4dff" android:pathData="M12,8 h2 v4 h-2 z"/>
+    <!-- mão dir (pele) -->
+    <path android:fillColor="#f5c89a" android:pathData="M12,12 h2 v1 h-2 z"/>
+
+    <!-- ===== CALÇA ===== -->
+    <path android:fillColor="#2d2d5e" android:pathData="M4,13 h8 v3 h-8 z"/>
+    <!-- divisória pernas -->
+    <path android:fillColor="#1a1a2e" android:pathData="M7.5,13 h1 v3 h-1 z"/>
+
+    <!-- ===== BOTAS ===== -->
+    <!-- bota esq -->
+    <path android:fillColor="#1a1a2e" android:pathData="M4,16 h3 v2 h-3 z"/>
+    <!-- solado esq amarelo -->
+    <path android:fillColor="#ffcc00" android:pathData="M4,17.67 h3 v1 h-3 z"/>
+
+    <!-- bota dir -->
+    <path android:fillColor="#1a1a2e" android:pathData="M9,16 h3 v2 h-3 z"/>
+    <!-- solado dir amarelo -->
+    <path android:fillColor="#ffcc00" android:pathData="M9,17.67 h3 v1 h-3 z"/>
+
+</vector>
