@@ -187,5 +187,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return 0;
     }
+    public int getTotalXP(int usuarioId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM progresso WHERE usuario_id = ? AND concluido = 1", new String[]{String.valueOf(usuarioId)});
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(0) * 10;
+        }
+        return 0;
+    }
+
 }
 

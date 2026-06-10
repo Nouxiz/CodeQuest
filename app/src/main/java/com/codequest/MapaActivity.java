@@ -41,6 +41,9 @@ public class MapaActivity extends AppCompatActivity {
         }
         concluidas.close();
 
+        TextView tvXP = findViewById(R.id.tvXP);
+        tvXP.setText(db.getTotalXP(usuarioId) + " XP");
+
         Cursor cursor = db.getFases();
         int i = 0;
 
