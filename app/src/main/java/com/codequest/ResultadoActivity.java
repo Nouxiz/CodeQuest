@@ -27,7 +27,7 @@ public class ResultadoActivity extends AppCompatActivity {
 
         if (cursor.moveToFirst()){
             String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
-            TextView tvTitulo = findViewById(R.id.tvTituloAula);
+            TextView tvTitulo = findViewById(R.id.tvAprendeu);
             tvTitulo.setText("VOCÊ APRENDEU: " + titulo);
 
         }
