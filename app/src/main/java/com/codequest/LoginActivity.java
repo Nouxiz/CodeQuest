@@ -38,6 +38,13 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             if (db.loginUsuario(email, senha)) {
+                int usuarioId = db.getUsuarioId(email);
+
+                getSharedPreferences("codequest", MODE_PRIVATE)
+                        .edit()
+                        .putInt("usuario_id", usuarioId)
+                        .apply();
+
                 Intent intent = new Intent(LoginActivity.this, TutorialActivity.class);
                 startActivity(intent);
             } else {

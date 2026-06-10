@@ -166,6 +166,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase fase = this.getReadableDatabase();
         return fase.rawQuery("SELECT * FROM fases where id = ?", new String[]{String.valueOf(faseId)});
         }
+    public Boolean salvarProgresso(int usuarioId, int faseId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("usuario_id", usuarioId);
+        values.put("fase_Id", faseId);
+        values.put("concluido", 1);
+        long resultado = db.insert("progresso", null, values);
+        return resultado != -1;
     }
-
+    public Cursor getFasesConcluidas(int usuarioId) {
+        SQLiteDatabase fasesconc = this.getReadableDatabase();
+        return fasesconc.rawQuery("SELECT fase_id FROM progresso WHERE usuario_id = ? AND concluido = 1", new String[]{String.valueOf(usuarioId)});
+    }
+    public int getUsuarioId(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id FROM usuarios WHERE email = ?", new String[]{email});
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+        }
+        return 0;
+    }
+}
 

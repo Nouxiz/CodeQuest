@@ -18,25 +18,24 @@ public class ResultadoActivity extends AppCompatActivity {
         int faseId = getIntent().getIntExtra("fase_id", 0);
         boolean acertou = getIntent().getBooleanExtra("acertou", false);
 
+        DatabaseHelper db = new DatabaseHelper(this);
+        int usuarioId = getSharedPreferences("codequest", MODE_PRIVATE).getInt("usuario_id", 0);
+        db.salvarProgresso(usuarioId, faseId);
+
         TextView tvFaseConcluida = findViewById(R.id.tvFaseConcluida);
         tvFaseConcluida.setText("FASE CONCLUÍDA!");
 
-        DatabaseHelper db = new DatabaseHelper(this);
-
         Cursor cursor = db.getFase(faseId);
-
-        if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
             TextView tvTitulo = findViewById(R.id.tvAprendeu);
             tvTitulo.setText("VOCÊ APRENDEU: " + titulo);
-
         }
 
         Button btnProximo = findViewById(R.id.btnProximaFase);
-        btnProximo.setOnClickListener( v-> {
+        btnProximo.setOnClickListener(v -> {
             Intent intent = new Intent(ResultadoActivity.this, MapaActivity.class);
             startActivity(intent);
-
         });
+        }
     }
-}

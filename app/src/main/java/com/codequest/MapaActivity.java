@@ -28,17 +28,27 @@ public class MapaActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        int usuarioId = getSharedPreferences("codequest", MODE_PRIVATE).getInt("usuario_id", 0);
         DatabaseHelper db = new DatabaseHelper(this);
-        Cursor cursor = db.getFases();
 
+        Cursor concluidas = db.getFasesConcluidas(usuarioId);
         int fasesDesbloqueadas = 1;
+        while (concluidas.moveToNext()) {
+            int faseConcluida = concluidas.getInt(concluidas.getColumnIndexOrThrow("fase_id"));
+            if (faseConcluida >= fasesDesbloqueadas) {
+                fasesDesbloqueadas = faseConcluida + 1;
+            }
+        }
+        concluidas.close();
+
+        Cursor cursor = db.getFases();
         int i = 0;
 
         while (cursor.moveToNext()) {
             final int faseId = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
             String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
 
-            boolean concluida = false;
+            boolean concluida = faseId < fasesDesbloqueadas;
             boolean desbloqueada = faseId <= fasesDesbloqueadas;
 
             LinearLayout card = new LinearLayout(this);
