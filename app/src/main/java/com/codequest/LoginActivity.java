@@ -1,6 +1,7 @@
 package com.codequest;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,10 +40,12 @@ public class LoginActivity extends AppCompatActivity {
 
             if (db.loginUsuario(email, senha)) {
                 int usuarioId = db.getUsuarioId(email);
+                String nome = db.getNomeUsuario(usuarioId);
 
-                getSharedPreferences("codequest", MODE_PRIVATE)
-                        .edit()
+                SharedPreferences prefs = getSharedPreferences("codequest", MODE_PRIVATE);
+                prefs.edit()
                         .putInt("usuario_id", usuarioId)
+                        .putString("usuario_nome", nome)
                         .apply();
 
                 Intent intent = new Intent(LoginActivity.this, TutorialActivity.class);

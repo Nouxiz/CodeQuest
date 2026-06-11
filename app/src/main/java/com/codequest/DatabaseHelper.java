@@ -9,7 +9,7 @@ import android.database.Cursor;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "codequest.db";
-    private static final int BANCO_VERSAO = 12;
+    private static final int BANCO_VERSAO = 13;
 
     public DatabaseHelper(Context context) {
         super(context, NOME_BANCO, null, BANCO_VERSAO);
@@ -337,6 +337,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM exercicios WHERE id = ?", new String[]{String.valueOf(exercicioId)});
     }
-
+    public String getNomeUsuario(int usuarioId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT nome FROM usuarios WHERE id = ?", new String[]{String.valueOf(usuarioId)});
+        if (cursor.moveToFirst()) {
+            return cursor.getString(cursor.getColumnIndexOrThrow("nome"));
+        }
+        return "Usuário";
+    }
 }
 
