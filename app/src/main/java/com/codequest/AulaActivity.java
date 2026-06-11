@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AulaActivity extends AppCompatActivity {
 
+    int paginaAtual = 1;
+    int totalPaginas = 5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,18 +30,34 @@ public class AulaActivity extends AppCompatActivity {
             tvSubtitulo.setText(titulo);
         }
 
-        Cursor cursor = db.getAula(faseId);
-        if (cursor.moveToFirst()) {
-            String conteudo = cursor.getString(cursor.getColumnIndexOrThrow("conteudo_teorico"));
-            TextView tvConteudo = findViewById(R.id.tvConteudo);
-            tvConteudo.setText(conteudo);
-        }
+        carregarPagina(faseId, paginaAtual, db);
 
         Button btnProximo = findViewById(R.id.btnProximo);
         btnProximo.setOnClickListener(v -> {
-            Intent intent = new Intent(AulaActivity.this, ExercicioActivity.class);
-            intent.putExtra("fase_id", faseId);
-            startActivity(intent);
+            if (paginaAtual < totalPaginas) {
+                paginaAtual++;
+                carregarPagina(faseId, paginaAtual, db);
+            } else {
+                Intent intent = new Intent(AulaActivity.this, ExercicioActivity.class);
+                intent.putExtra("fase_id", faseId);
+                startActivity(intent);
+            }
         });
+    }
+
+    private void carregarPagina(int faseId, int pagina, DatabaseHelper db) {
+        Cursor cursor = db.getAula(faseId, pagina);
+        TextView tvConteudo = findViewById(R.id.tvConteudo);
+        TextView tvProgresso = findViewById(R.id.tvProgresso);
+
+        tvProgresso.setText(pagina + "/" + totalPaginas);
+
+        if (cursor.moveToFirst()) {
+            String conteudo = cursor.getString(cursor.getColumnIndexOrThrow("conteudo_teorico"));
+            tvConteudo.setText(conteudo);
+        } else {
+            tvConteudo.setText("Conteúdo em breve...");
+        }
+        cursor.close();
     }
 }
