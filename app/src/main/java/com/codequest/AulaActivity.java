@@ -14,15 +14,25 @@ public class AulaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aula);
-        int faseId = getIntent().getIntExtra("fase_id", 0);
 
+        final int faseId = getIntent().getIntExtra("fase_id", 0);
         DatabaseHelper db = new DatabaseHelper(this);
 
+        Cursor cursorFase = db.getFase(faseId);
+        if (cursorFase.moveToFirst()) {
+            String titulo = cursorFase.getString(cursorFase.getColumnIndexOrThrow("titulo"));
+            TextView tvTituloAula = findViewById(R.id.tvTituloAula);
+            tvTituloAula.setText("Aula " + faseId + ":");
+            TextView tvSubtitulo = findViewById(R.id.tvSubtitulo);
+            tvSubtitulo.setText(titulo);
+        }
+
         Cursor cursor = db.getAula(faseId);
-            if (cursor.moveToFirst()) {
-                String conteudo = cursor.getString(cursor.getColumnIndexOrThrow("conteudo_teorico"));
-                TextView tvConteudo = findViewById(R.id.tvConteudo);
-                tvConteudo.setText(conteudo);
+        if (cursor.moveToFirst()) {
+            String conteudo = cursor.getString(cursor.getColumnIndexOrThrow("conteudo_teorico"));
+            TextView tvConteudo = findViewById(R.id.tvConteudo);
+            tvConteudo.setText(conteudo);
+        }
 
         Button btnProximo = findViewById(R.id.btnProximo);
         btnProximo.setOnClickListener(v -> {
@@ -30,6 +40,5 @@ public class AulaActivity extends AppCompatActivity {
             intent.putExtra("fase_id", faseId);
             startActivity(intent);
         });
-            }
-        }
     }
+}
